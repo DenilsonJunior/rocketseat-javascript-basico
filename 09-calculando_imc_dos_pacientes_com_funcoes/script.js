@@ -32,21 +32,19 @@ const pacientes = [
 ]
 
 // calculo do IMC = peso / altura * altura;
-calcImc();
+function calcImc(pacientes) {
+    return `
+        Paciente ${pacientes.nome} possui o IMC de: 
+        ${(pacientes.peso / (pacientes.altura ** 2)).toFixed(2)}
+    `
+}
 
-function calcImc() {
-    let pesos = []
-    let alturas = []
-    let imc = []
+// for (let i = 0; i < pacientes.length; i++) {
+//     let mensagem = calcImc(pacientes[i])
+//     console.log(mensagem)
+// }
 
-    for (const paciente of pacientes) {
-        pesos.push(paciente.peso)
-        alturas.push(paciente.altura)
-    }
-    
-    for (let i = 0; i < pacientes.length; i++) {
-        imc.push(`${(pesos[i] / (alturas[i] ** 2)).toFixed(2)}`)
-    }
-
-    console.log(imc)
+for (const paciente of pacientes) {
+    let mensagem = calcImc(paciente)
+    console.log(mensagem)
 }
